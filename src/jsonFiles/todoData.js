@@ -16,24 +16,28 @@ const todoData = [
     },
     {
         id: 4,
-        text: 'learn tutorials of node js',
+        text: 'learn tutorials of OOPS',
         completed: false
     },
     {
         id: 5,
-        text: 'learn tutorials of any database',
+        text: 'learn tutorials of node js',
         completed: false
     },
     {
         id: 6,
-        text: 'learn tutorials of creating sample project with DB, recta redux, node',
+        text: 'learn tutorials of any database',
         completed: false
     },
     {
         id: 7,
+        text: 'learn tutorials of creating sample project with DB, recta redux, node',
+        completed: false
+    },
+    {
+        id: 8,
         text: 'learn tutorials of jwt token',
         completed: false
     },
-
 ]
 export default todoData;

@@ -2,20 +2,20 @@ import React, {Component} from 'react';
 import './App.css';
 import TodoItem from './component/todoItem';
 import todoData from './jsonFiles/todoData'
-import { render } from '@testing-library/react';
+import LogInForm from './component/logInForm';
 /**
  * In jsx we use className instead of class reason :-
  *  1. people say class is a reserverd key word in javascript
- *  2. jsx just using the vanilla javascript DOM API
- *  3. document.getElementById('sometging').className + "new-class-name"
- *  4. className is a underline javascript DOM API
+ *  2. className is a underline javascript DOM API and jsx just using the vanilla javascript DOM API
+ *  ex in vanilla javascript -> document.getElementById('sometging').className + "new-class-name"
  */
 class App extends Component {
   constructor() {
     super()
     this.state = {
       todos: todoData,
-      isLoading: true
+      isLoading: true,
+      IsFormOpen: false
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -32,6 +32,13 @@ class App extends Component {
         todos: updatedState
     })
     console.log('updatedState----', updatedState);
+  }
+
+  handleSignIn = () => {
+    console.log('sign in');
+    this.setState({
+      IsFormOpen: true
+    })
   }
 
   componentDidMount() {
@@ -65,7 +72,8 @@ class App extends Component {
     return (
     <div className="todo-list">
       <h3 style={styles}>Hello, Good {timeOfDay} jyotsana This is your TODO list</h3>
-      {this.state.isLoading ? 'Loading....' : todoItemList }
+      <button onClick={this.handleSignIn}>Log In</button>
+      {this.state.IsFormOpen ? (<LogInForm/>) :  this.state.isLoading ? 'Loading....' : todoItemList }
     </div>
   );
   };
